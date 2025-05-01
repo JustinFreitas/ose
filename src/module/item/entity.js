@@ -59,8 +59,15 @@ export default class OseItem extends Item {
   }
 
   static chatListeners(html) {
-    html.on("click", ".card-buttons button", this._onChatCardAction.bind(this));
-    html.on("click", ".item-name", this._onChatCardToggleContent.bind(this));
+    html.querySelectorAll(".card-buttons button").forEach((button) => {
+      button.addEventListener("click", this._onChatCardAction.bind(this));
+    });
+    html.querySelectorAll(".item-name").forEach((header) => {
+      header.addEventListener(
+        "click",
+        this._onChatCardToggleContent.bind(this)
+      );
+    });
   }
 
   async getChatData(htmlOptions) {
@@ -163,8 +170,8 @@ export default class OseItem extends Item {
     };
 
     if (this.type === "spell") {
-      rollData.description = itemData.description
-    };
+      rollData.description = itemData.description;
+    }
 
     // Roll and return
     return OseDice.Roll({
@@ -191,17 +198,16 @@ export default class OseItem extends Item {
       },
     });
 
-    if (itemData.roll) {
-      await this.rollFormula()
-    } else {
-      await this.show({ skipDialog: true })
-    };
+    await (itemData.roll
+      ? this.rollFormula()
+      : this.show({ skipDialog: true }));
   }
 
   _getRollTag(data) {
     if (data.roll) {
-      const roll = `${data.roll}${data.rollTarget ? CONFIG.OSE.roll_type[data.rollType] : ""
-        }${data.rollTarget ? data.rollTarget : ""}`;
+      const roll = `${data.roll}${
+        data.rollTarget ? CONFIG.OSE.roll_type[data.rollType] : ""
+      }${data.rollTarget ? data.rollTarget : ""}`;
       return {
         label: `${game.i18n.localize("OSE.items.Roll")} ${roll}`,
       };
@@ -389,7 +395,10 @@ export default class OseItem extends Item {
       hasSave: this.hasSave,
       config: CONFIG.OSE,
     };
-    templateData.rollFormula = new Roll(templateData.data.roll, templateData).formula;
+    templateData.rollFormula = new Roll(
+      templateData.data.roll,
+      templateData
+    ).formula;
     templateData.data.properties = this.system.autoTags;
 
     // Render the chat card template

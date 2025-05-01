@@ -3,7 +3,8 @@ import { OSEGroupCombat } from "./combat-group";
 import OSECombatGroupSelector from "./combat-set-groups";
 import { OSECombatant } from "./combatant";
 
-export class OSECombatTab extends CombatTracker {
+export class OSECombatTab extends foundry.applications.sidebar.tabs
+  .CombatTracker {
   // ===========================================================================
   // APPLICATION SETUP
   // ===========================================================================
@@ -17,19 +18,20 @@ export class OSECombatTab extends CombatTracker {
 
   static GROUP_CONFIG_APP = new OSECombatGroupSelector();
 
-
   // ===========================================================================
   // RENDERING
   // ===========================================================================
 
   async getData(options) {
     const context = await super.getData(options);
-    const isGroupInitiative = game.settings.get(game.system.id, "initiative") === "group";
+    const isGroupInitiative =
+      game.settings.get(game.system.id, "initiative") === "group";
 
     // @ts-expect-error - We don't have type data for the combat tracker turn object
     const turns = context.turns.map((turn) => {
       const combatant = game.combat.combatants.get(turn.id);
-      turn.isSlowed = turn.initiative === `${OSECombatant.INITIATIVE_VALUE_SLOWED}`;
+      turn.isSlowed =
+        turn.initiative === `${OSECombatant.INITIATIVE_VALUE_SLOWED}`;
       turn.isFast = turn.initiative === `${OSECombatant.INITIATIVE_VALUE_FAST}`;
       turn.isCasting = !!combatant.getFlag(game.system.id, "prepareSpell");
       turn.isRetreating = !!combatant.getFlag(game.system.id, "moveInCombat");
@@ -39,28 +41,30 @@ export class OSECombatTab extends CombatTracker {
     });
 
     const groups = turns.reduce((arr, turn) => {
-      const idx = arr.findIndex(r => r.group === turn.group);
+      const idx = arr.findIndex((r) => r.group === turn.group);
 
       if (idx !== -1) {
         arr[idx].turns.push(turn);
         return arr;
       }
 
-      return [...arr, {
-        group: turn.group,
-        label: OSEGroupCombat.GROUPS[turn.group],
-        initiative: turn.initiative,
-        turns: [turn]
-      }];
+      return [
+        ...arr,
+        {
+          group: turn.group,
+          label: OSEGroupCombat.GROUPS[turn.group],
+          initiative: turn.initiative,
+          turns: [turn],
+        },
+      ];
     }, []);
-    
+
     return foundry.utils.mergeObject(context, {
       turns,
       groups,
-      isGroupInitiative
-    })
+      isGroupInitiative,
+    });
   }
-
 
   // ===========================================================================
   // UI EVENTS
@@ -71,7 +75,7 @@ export class OSECombatTab extends CombatTracker {
     const trackerHeader = html.find("#combat > header");
 
     // Reroll group initiative
-    html.find('.combat-button[data-control="reroll"]').click((ev) => {      
+    html.find('.combat-button[data-control="reroll"]').click((ev) => {
       game.combat.rollInitiative();
     });
 
@@ -87,8 +91,9 @@ export class OSECombatTab extends CombatTracker {
 
   /**
    * Handle a Combatant control toggle
+   *
    * @private
-   * @param {Event} event   The originating mousedown event
+   * @param {Event} event - The originating mousedown event
    */
   async _onCombatantControl(event: any) {
     event.preventDefault();
@@ -98,19 +103,24 @@ export class OSECombatTab extends CombatTracker {
     const combat = this.viewed;
     const c = combat.combatants.get(li.dataset.combatantId);
 
-    switch ( btn.dataset.control ) {
+    switch (btn.dataset.control) {
       // Toggle combatant spellcasting flag
-      case "casting":
+      case "casting": {
         return this.#toggleFlag(c as OSECombatant, "prepareSpell");
+      }
+
       // Toggle combatant retreating flag
-      case "retreat":
+      case "retreat": {
         return this.#toggleFlag(c as OSECombatant, "moveInCombat");
+      }
+
       // Fall back to the superclass's button events
-      default:
+      default: {
         return super._onCombatantControl(event);
+      }
     }
   }
-  
+
   // ===========================================================================
   // ADDITIONS TO THE COMBATANT CONTEXT MENU
   // ===========================================================================
@@ -122,12 +132,14 @@ export class OSECombatTab extends CombatTracker {
         name: game.i18n.localize("OSE.combat.SetCombatantAsActive"),
         icon: '<i class="fas fa-star-of-life"></i>',
         callback: (li) => {
-          const combatantId = li.data('combatant-id')
-          const turnToActivate = this.viewed.turns.findIndex(t => t.id === combatantId);
+          const combatantId = li.data("combatant-id");
+          const turnToActivate = this.viewed.turns.findIndex(
+            (t) => t.id === combatantId
+          );
           this.viewed.activateCombatant(turnToActivate);
-        }
+        },
       },
-      ...options
+      ...options,
     ];
   }
 }

@@ -11,7 +11,8 @@ const getItemsOfActorOfType = (actor, filterType, filterFn = null) =>
     .filter(({ type }) => type === filterType)
     .filter(filterFn || (() => true));
 
-export default class OseDataModelCharacter extends foundry.abstract.TypeDataModel {
+export default class OseDataModelCharacter extends foundry.abstract
+  .TypeDataModel {
   prepareDerivedData() {
     this.scores = new OseDataModelCharacterScores(this.scores);
 
@@ -25,7 +26,8 @@ export default class OseDataModelCharacter extends foundry.abstract.TypeDataMode
           "significantTreasure"
         ),
         scores: this.scores,
-      }
+      },
+      this.scores.str.mod
     );
 
     this.movement = new OseDataModelCharacterMove(
