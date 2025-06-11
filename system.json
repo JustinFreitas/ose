@@ -1,9 +1,9 @@
 {
   "name": "ose",
   "id": "ose",
-  "title": "Old-School Essentials Development Build",
+  "title": "Old-School Essentials",
   "description": "Simple, robust rules compatible with decades of Basic/Expert material",
-  "version": "2.0.3_4-gygax75",
+  "version": "2.0.3_5-gygax75",
   "minimumCoreVersion": "12",
   "compatibleCoreVersion": "12",
   "compatibility": {
@@ -11,7 +11,7 @@
     "verified": "13",
     "maximum": "13"
   },
-  "author": "Maintained by VTT Red with 18 contributors",
+  "author": "Custom build for Xanstin's Gaming Group Gygax75 game",
   "authors": [
     {
       "name": "VTT RED",
@@ -35,69 +35,12 @@
       "lang": "en",
       "name": "English (UK)",
       "path": "dist/lang/en.json"
-    },
-    {
-      "lang": "it",
-      "name": "Italiano (Italia)",
-      "path": "dist/lang/it.json"
-    },
-    {
-      "lang": "fr",
-      "name": "Français (France)",
-      "path": "dist/lang/fr.json"
-    },
-    {
-      "lang": "pt-BR",
-      "name": "Português (Brasil)",
-      "path": "dist/lang/pt-BR.json"
-    },
-    {
-      "lang": "es",
-      "name": "Español (España)",
-      "path": "dist/lang/es.json"
-    },
-    {
-      "lang": "de",
-      "name": "Deutsch (Deutschland)",
-      "path": "dist/lang/de.json"
-    },
-    {
-      "lang": "ca",
-      "name": "Català (Andorra)",
-      "path": "dist/lang/ca.json"
-    },
-    {
-      "lang": "cn",
-      "name": "简体中文 (中国)",
-      "path": "dist/lang/zh-CN.json"
-    },
-    {
-      "lang": "sv",
-      "name": "Svenska (Sverige)",
-      "path": "dist/lang/sv.json"
-    },
-    {
-      "lang": "pl",
-      "name": "Polski (Polska)",
-      "path": "dist/lang/pl.json"
-    },
-    {
-      "lang": "ko",
-      "name": "한국어 (한국)",
-      "path": "dist/lang/ko.json"
-    },
-    {
-      "lang": "ru",
-      "name": "Русский (Россия)",
-      "path": "dist/lang/ru.json"
     }
   ],
   "gridDistance": 5,
   "gridUnits": "ft",
-  "url": "AUTOMATICALLY REPLACED BY GITHUB WORKFLOW ACTION",
-  "manifest": "AUTOMATICALLY REPLACED BY GITHUB WORKFLOW ACTION",
-  "download": "AUTOMATICALLY REPLACED BY GITHUB WORKFLOW ACTION",
-  "bugs": "https://github.com/vttred/ose/issues",
+  "url": "https://github.com/JustinFreitas/ose",
+   "bugs": "https://github.com/vttred/ose/issues",
   "flags": {
     "allowBugReporter": true
   },
