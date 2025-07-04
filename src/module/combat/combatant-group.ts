@@ -23,7 +23,7 @@ export class OSEGroupCombatant extends OSECombatant {
         case -1:
           return "red";
         case 0:
-          return "yellow";
+          return "purple";
         case 1:
           return "green";
       }

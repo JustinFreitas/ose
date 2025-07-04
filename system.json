@@ -1,26 +1,24 @@
 {
-  "name": "ose",
   "id": "ose",
-  "title": "Old-School Essentials Development Build",
+  "title": "Old-School Essentials",
   "description": "Simple, robust rules compatible with decades of Basic/Expert material",
-  "version": "2.0.3_4-gygax75",
-  "minimumCoreVersion": "12",
-  "compatibleCoreVersion": "12",
+  "version": "2.0.3_5-gygax75",
   "compatibility": {
     "minimum": "12",
     "verified": "12",
     "maximum": "12"
   },
-  "author": "Maintained by VTT Red with 18 contributors",
   "authors": [
     {
       "name": "VTT RED",
       "email": "ose-system@vtt.red",
-      "url": "https://vtt.red"
+      "url": "https://vtt.red",
+      "flags": {}
     },
     {
       "name": "and 18 other contributors",
-      "url": "https://github.com/vttred/ose#contributors-"
+      "url": "https://github.com/vttred/ose#contributors-",
+      "flags": {}
     }
   ],
   "esmodules": [
@@ -29,74 +27,85 @@
   "styles": [
     "dist/ose.css"
   ],
-  "packs": [],
   "languages": [
     {
       "lang": "en",
       "name": "English (UK)",
-      "path": "dist/lang/en.json"
+      "path": "dist/lang/en.json",
+      "flags": {}
     },
     {
       "lang": "it",
       "name": "Italiano (Italia)",
-      "path": "dist/lang/it.json"
+      "path": "dist/lang/it.json",
+      "flags": {}
     },
     {
       "lang": "fr",
       "name": "Français (France)",
-      "path": "dist/lang/fr.json"
+      "path": "dist/lang/fr.json",
+      "flags": {}
     },
     {
       "lang": "pt-BR",
       "name": "Português (Brasil)",
-      "path": "dist/lang/pt-BR.json"
+      "path": "dist/lang/pt-BR.json",
+      "flags": {}
     },
     {
       "lang": "es",
       "name": "Español (España)",
-      "path": "dist/lang/es.json"
+      "path": "dist/lang/es.json",
+      "flags": {}
     },
     {
       "lang": "de",
       "name": "Deutsch (Deutschland)",
-      "path": "dist/lang/de.json"
+      "path": "dist/lang/de.json",
+      "flags": {}
     },
     {
       "lang": "ca",
       "name": "Català (Andorra)",
-      "path": "dist/lang/ca.json"
+      "path": "dist/lang/ca.json",
+      "flags": {}
     },
     {
       "lang": "cn",
       "name": "简体中文 (中国)",
-      "path": "dist/lang/zh-CN.json"
+      "path": "dist/lang/zh-CN.json",
+      "flags": {}
     },
     {
       "lang": "sv",
       "name": "Svenska (Sverige)",
-      "path": "dist/lang/sv.json"
+      "path": "dist/lang/sv.json",
+      "flags": {}
     },
     {
       "lang": "pl",
       "name": "Polski (Polska)",
-      "path": "dist/lang/pl.json"
+      "path": "dist/lang/pl.json",
+      "flags": {}
     },
     {
       "lang": "ko",
       "name": "한국어 (한국)",
-      "path": "dist/lang/ko.json"
+      "path": "dist/lang/ko.json",
+      "flags": {}
     },
     {
       "lang": "ru",
       "name": "Русский (Россия)",
-      "path": "dist/lang/ru.json"
+      "path": "dist/lang/ru.json",
+      "flags": {}
     }
   ],
   "gridDistance": 5,
   "gridUnits": "ft",
-  "url": "AUTOMATICALLY REPLACED BY GITHUB WORKFLOW ACTION",
-  "manifest": "AUTOMATICALLY REPLACED BY GITHUB WORKFLOW ACTION",
-  "download": "AUTOMATICALLY REPLACED BY GITHUB WORKFLOW ACTION",
+  "url": "https://github.com/vttred/ose",
+  "manifest": "https://github.com/vttred/ose/releases/latest/download/system.json",
+  "download": "https://github.com/vttred/ose/releases/download/2.0.3/system.zip",
   "bugs": "https://github.com/vttred/ose/issues",
   "flags": {
     "allowBugReporter": true
@@ -122,5 +131,9 @@
         }
       }
     ]
+  },
+  "grid": {
+    "distance": 5,
+    "units": "ft"
   }
 }
