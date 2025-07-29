@@ -104,9 +104,9 @@
   "gridDistance": 5,
   "gridUnits": "ft",
   "url": "https://github.com/JustinFreitas/ose",
-  "manifest": "https://github.com/JustinFreitas/ose/releases/latest/download/system.json",
-  "download": "https://github.com/JustinFreitas/ose/releases/download/v2.0.3_7-gygax75/ose-v2.0.3_7-gygax75.zip",
-  "bugs": "https://github.com/vttred/ose/issues",
+  "manifest": "",
+  "download": "",
+  "bugs": "",
   "flags": {
     "allowBugReporter": true
   },
